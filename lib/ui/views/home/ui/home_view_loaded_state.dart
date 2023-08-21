@@ -8,18 +8,44 @@ class HomeViewLoadedState extends ViewModelWidget<HomeViewModel> {
 
   @override
   Widget build(BuildContext context, HomeViewModel viewModel) {
-    return viewModel.posts.isEmpty
+    return viewModel.postDetails.isEmpty
         ? const HomeViewEmptyState()
         : SingleChildScrollView(
             physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: viewModel.posts.map((e) {
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: viewModel.postDetails.map((e) {
                 return Card(
+                  margin: EdgeInsets.symmetric(vertical: 10),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('${e.title}'),
-                      Text('${e.body}'),
+                      Row(
+                        children: [
+                          /// TODO: get user first char
+                          CircleAvatar(
+                            child: Text('${e.user.initial()}'),
+                          ),
+                          SizedBox(width: 10),
+                          Flexible(
+                            child: Text(
+                              '${e.user.name}',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        '${e.post.title}',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                      SizedBox(height: 20),
+                      Text('${e.post.body}'),
                     ],
                   ),
                 );

@@ -13,7 +13,8 @@ class Comment extends Equatable {
 
   const Comment(this.postId, this.id, this.name, this.email, this.body);
 
-  factory Comment.fromJson(Map<String, dynamic> json) => _$CommentFromJson(json);
+  factory Comment.fromJson(Map<String, dynamic> json) =>
+      _$CommentFromJson(json);
 
   Map<String, dynamic> toJson() => _$CommentToJson(this);
 

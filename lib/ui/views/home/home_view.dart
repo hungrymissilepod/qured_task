@@ -21,7 +21,9 @@ class HomeView extends StackedView<HomeViewModel> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: viewModel.isBusy ? const HomeViewLoadingState() : const HomeViewLoadedState(),
+          child: viewModel.isBusy
+              ? const HomeViewLoadingState()
+              : const HomeViewLoadedState(),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(

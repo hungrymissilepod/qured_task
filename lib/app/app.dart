@@ -9,6 +9,8 @@ import 'package:flutter_app_template/ui/views/login/login_view.dart';
 import 'package:flutter_app_template/services/authentication_service.dart';
 import 'package:flutter_app_template/services/dio_service.dart';
 import 'package:flutter_app_template/services/post_service.dart';
+import 'package:flutter_app_template/services/user_service.dart';
+import 'package:flutter_app_template/services/post_detail_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -26,6 +28,8 @@ import 'package:flutter_app_template/services/post_service.dart';
     LazySingleton(classType: AuthenticationService),
     LazySingleton(classType: DioService),
     LazySingleton(classType: PostService),
+    LazySingleton(classType: UserService),
+    LazySingleton(classType: PostDetailService),
 // @stacked-service
   ],
   bottomsheets: [

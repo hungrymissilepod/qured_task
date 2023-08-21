@@ -9,7 +9,8 @@ class PostService {
   final List<Post> posts = <Post>[];
 
   Future<List<Post>> fetchPosts() async {
-    final Response response = await _dioService.get('https://jsonplaceholder.typicode.com/posts');
+    final Response response =
+        await _dioService.get('https://jsonplaceholder.typicode.com/posts');
     if (response.statusCode == 200) {
       final List<dynamic> data = response.data;
       for (Map<String, dynamic> obj in data) {
