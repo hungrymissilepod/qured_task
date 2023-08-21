@@ -8,6 +8,7 @@ import 'dart:ui' as _i7;
 
 import 'package:dio/dio.dart' as _i2;
 import 'package:flutter/material.dart' as _i5;
+import 'package:flutter_app_template/models/post_detail_model.dart' as _i14;
 import 'package:flutter_app_template/models/post_model.dart' as _i11;
 import 'package:flutter_app_template/models/user_model.dart' as _i3;
 import 'package:flutter_app_template/services/authentication_service.dart'
@@ -867,5 +868,22 @@ class MockUserService extends _i1.Mock implements _i12.UserService {
 /// A class which mocks [PostDetailService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPostDetailService extends _i1.Mock
-    implements _i13.PostDetailService {}
+class MockPostDetailService extends _i1.Mock implements _i13.PostDetailService {
+  @override
+  List<_i14.PostDetail> get postDetails => (super.noSuchMethod(
+        Invocation.getter(#postDetails),
+        returnValue: <_i14.PostDetail>[],
+        returnValueForMissingStub: <_i14.PostDetail>[],
+      ) as List<_i14.PostDetail>);
+  @override
+  _i6.Future<List<_i14.PostDetail>> fetchPostDetails() => (super.noSuchMethod(
+        Invocation.method(
+          #fetchPostDetails,
+          [],
+        ),
+        returnValue:
+            _i6.Future<List<_i14.PostDetail>>.value(<_i14.PostDetail>[]),
+        returnValueForMissingStub:
+            _i6.Future<List<_i14.PostDetail>>.value(<_i14.PostDetail>[]),
+      ) as _i6.Future<List<_i14.PostDetail>>);
+}

@@ -11,6 +11,7 @@ import 'package:flutter_app_template/services/dio_service.dart';
 import 'package:flutter_app_template/services/post_service.dart';
 import 'package:flutter_app_template/services/user_service.dart';
 import 'package:flutter_app_template/services/post_detail_service.dart';
+import 'package:flutter_app_template/ui/views/post_detail/post_detail_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -19,6 +20,7 @@ import 'package:flutter_app_template/services/post_detail_service.dart';
     MaterialRoute(page: StartupView),
     MaterialRoute(page: CounterView),
     MaterialRoute(page: LoginView),
+    MaterialRoute(page: PostDetailView),
 // @stacked-route
   ],
   dependencies: [

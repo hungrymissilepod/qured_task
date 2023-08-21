@@ -14,7 +14,8 @@ class PostDetail extends Equatable {
 
   const PostDetail(this.post, this.user, {this.comments});
 
-  factory PostDetail.fromJson(Map<String, dynamic> json) => _$PostDetailFromJson(json);
+  factory PostDetail.fromJson(Map<String, dynamic> json) =>
+      _$PostDetailFromJson(json);
 
   Map<String, dynamic> toJson() => _$PostDetailToJson(this);
 
