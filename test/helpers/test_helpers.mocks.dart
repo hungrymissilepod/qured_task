@@ -8,6 +8,7 @@ import 'dart:ui' as _i6;
 
 import 'package:dio/dio.dart' as _i2;
 import 'package:flutter/material.dart' as _i4;
+import 'package:flutter_app_template/models/post_model.dart' as _i10;
 import 'package:flutter_app_template/services/authentication_service.dart'
     as _i7;
 import 'package:flutter_app_template/services/dio_service.dart' as _i8;
@@ -788,4 +789,20 @@ class MockDioService extends _i1.Mock implements _i8.DioService {
 /// A class which mocks [PostService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPostService extends _i1.Mock implements _i9.PostService {}
+class MockPostService extends _i1.Mock implements _i9.PostService {
+  @override
+  List<_i10.Post> get posts => (super.noSuchMethod(
+        Invocation.getter(#posts),
+        returnValue: <_i10.Post>[],
+        returnValueForMissingStub: <_i10.Post>[],
+      ) as List<_i10.Post>);
+  @override
+  _i5.Future<List<_i10.Post>?> fetchPosts() => (super.noSuchMethod(
+        Invocation.method(
+          #fetchPosts,
+          [],
+        ),
+        returnValue: _i5.Future<List<_i10.Post>?>.value(),
+        returnValueForMissingStub: _i5.Future<List<_i10.Post>?>.value(),
+      ) as _i5.Future<List<_i10.Post>?>);
+}
