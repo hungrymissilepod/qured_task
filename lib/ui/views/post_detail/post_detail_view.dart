@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/models/comment_model.dart';
 import 'package:flutter_app_template/models/post_detail_model.dart';
-import 'package:flutter_app_template/ui/views/home/ui/post_author_avatar.dart';
+import 'package:flutter_app_template/ui/common/app_bar.dart';
+import 'package:flutter_app_template/ui/common/post_author_avatar.dart';
+import 'package:flutter_app_template/ui/views/post_detail/comment_card.dart';
+import 'package:flutter_app_template/ui/views/post_detail/comments_empty_state.dart';
+import 'package:flutter_app_template/ui/views/post_detail/comments_loading_state.dart';
 import 'package:stacked/stacked.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -22,19 +25,19 @@ class PostDetailView extends StackedView<PostDetailViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '${postDetail.post.title}',
-        ),
+      appBar: MyAppBar(
+        title: postDetail.post.title,
+        showBackArrow: true,
       ),
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        child: Scrollbar(
           child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: FadeInImage.memoryNetwork(
@@ -45,41 +48,54 @@ class PostDetailView extends StackedView<PostDetailViewModel> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                PostAuthorAvatar(
-                  user: postDetail.user,
-                  date: postDetail.date ?? DateTime.now(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: PostAuthorAvatar(
+                    user: postDetail.user,
+                    date: postDetail.date ?? DateTime.now(),
+                  ),
                 ),
                 Text(
-                  '${postDetail.post.title}',
-                  style: TextStyle(
+                  postDetail.post.title,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 20),
                 Text(
-                  '${postDetail.post.body}',
-                  style: TextStyle(
+                  postDetail.post.body,
+                  style: const TextStyle(
                     fontSize: 20,
                   ),
                 ),
-                SizedBox(height: 20),
-                Divider(),
-                Text(
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Divider(
+                    thickness: 1,
+                  ),
+                ),
+                const Text(
                   'Comments',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: 20,
                   ),
                 ),
+                const SizedBox(height: 10),
                 viewModel.busy(PostDetailViewSection.comments)
-                    ? CircularProgressIndicator()
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: viewModel.comments.map((e) {
-                          return CommentWidget(comment: e);
-                        }).toList(),
-                      ),
+                    ? const CommentsLoadingState()
+                    : viewModel.comments.isEmpty
+                        ? const CommentsEmptyState()
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: viewModel.comments.map(
+                              (e) {
+                                return CommentCard(comment: e);
+                              },
+                            ).toList(),
+                          ),
+                const SizedBox(height: 40),
               ],
             ),
           ),
@@ -93,52 +109,4 @@ class PostDetailView extends StackedView<PostDetailViewModel> {
     BuildContext context,
   ) =>
       PostDetailViewModel(postDetail);
-}
-
-class CommentWidget extends StatelessWidget {
-  const CommentWidget({
-    super.key,
-    required this.comment,
-  });
-
-  final Comment comment;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              CircleAvatar(
-                radius: 12,
-                child: Text(
-                  '${comment.initial()}',
-                  style: TextStyle(fontSize: 12),
-                ),
-              ),
-              SizedBox(width: 10),
-              Flexible(
-                child: Text(
-                  '${comment.email}}',
-                  style: TextStyle(
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 5),
-          Text(
-            '${comment.name}}',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10),
-          Text('${comment.body}}'),
-        ],
-      ),
-    );
-  }
 }

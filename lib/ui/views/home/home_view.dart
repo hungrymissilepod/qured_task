@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/ui/common/app_bar.dart';
 import 'package:flutter_app_template/ui/views/home/ui/home_view_loaded_state.dart';
 import 'package:flutter_app_template/ui/views/home/ui/home_view_loading_state.dart';
 import 'package:stacked/stacked.dart';
@@ -15,20 +16,11 @@ class HomeView extends StackedView<HomeViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'News Feed',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.white,
+      appBar: const MyAppBar(
+        title: 'News Feed',
       ),
       body: SafeArea(
-        child: viewModel.isBusy ? const HomeViewLoadingState() : const HomeViewLoadedState(),
+        child: viewModel.isBusy ? const HomeViewLoadingState() : HomeViewLoadedState(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,

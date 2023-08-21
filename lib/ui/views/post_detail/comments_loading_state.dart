@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class HomeViewLoadingState extends StatelessWidget {
-  const HomeViewLoadingState({super.key});
+class CommentsLoadingState extends StatelessWidget {
+  const CommentsLoadingState({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25.0),
+      padding: EdgeInsets.symmetric(vertical: 40),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -20,7 +20,7 @@ class HomeViewLoadingState extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Loading posts...',
+              'Loading comments...',
               style: TextStyle(fontSize: 20),
             ),
           ],
