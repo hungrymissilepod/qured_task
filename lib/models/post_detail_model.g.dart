@@ -12,6 +12,9 @@ PostDetail _$PostDetailFromJson(Map<String, dynamic> json) => PostDetail(
       comments: (json['comments'] as List<dynamic>?)
           ?.map((e) => Comment.fromJson(e as Map<String, dynamic>))
           .toList(),
+      imageUrl: json['imageUrl'] as String?,
+      date:
+          json['date'] == null ? null : DateTime.parse(json['date'] as String),
     );
 
 Map<String, dynamic> _$PostDetailToJson(PostDetail instance) =>
@@ -19,4 +22,6 @@ Map<String, dynamic> _$PostDetailToJson(PostDetail instance) =>
       'post': instance.post,
       'user': instance.user,
       'comments': instance.comments,
+      'imageUrl': instance.imageUrl,
+      'date': instance.date?.toIso8601String(),
     };

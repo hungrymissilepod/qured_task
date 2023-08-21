@@ -24,8 +24,8 @@ class HomeView extends StackedView<HomeViewModel> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.feed),
+            label: 'Feed',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),

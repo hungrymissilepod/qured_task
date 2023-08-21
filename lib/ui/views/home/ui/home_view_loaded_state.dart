@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/ui/views/home/home_viewmodel.dart';
 import 'package:flutter_app_template/ui/views/home/ui/home_view_empty_state.dart';
+import 'package:flutter_app_template/ui/views/home/ui/post_author_avatar.dart';
 import 'package:stacked/stacked.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -23,9 +24,9 @@ class HomeViewLoadedState extends ViewModelWidget<HomeViewModel> {
                     child: Card(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       elevation: 2,
-                      margin: EdgeInsets.symmetric(vertical: 10),
+                      margin: const EdgeInsets.symmetric(vertical: 10),
                       child: Container(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -39,38 +40,22 @@ class HomeViewLoadedState extends ViewModelWidget<HomeViewModel> {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            SizedBox(height: 10),
-
-                            /// TODO: make this into a reusable widget
-                            Row(
-                              children: <Widget>[
-                                CircleAvatar(
-                                  child: Text('${e.user.initial()}'),
-                                ),
-                                SizedBox(width: 10),
-                                Flexible(
-                                  child: Text(
-                                    '${e.user.name}',
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ],
+                            PostAuthorAvatar(
+                              user: e.user,
+                              date: e.date ?? DateTime.now(),
                             ),
-                            SizedBox(height: 20),
                             Text(
-                              '${e.post.title}',
+                              e.post.title,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
                               ),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Text(
-                              '${e.post.body}',
+                              e.post.body,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),

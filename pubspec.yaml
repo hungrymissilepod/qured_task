@@ -22,6 +22,8 @@ dependencies:
   equatable: ^2.0.5
   json_annotation: ^4.8.1
   transparent_image: ^2.0.1
+  random_date: ^0.0.7
+  intl: ^0.18.1
   
 
 dev_dependencies:

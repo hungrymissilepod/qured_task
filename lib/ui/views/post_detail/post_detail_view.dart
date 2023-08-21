@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/models/comment_model.dart';
 import 'package:flutter_app_template/models/post_detail_model.dart';
+import 'package:flutter_app_template/ui/views/home/ui/post_author_avatar.dart';
 import 'package:stacked/stacked.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -44,24 +45,10 @@ class PostDetailView extends StackedView<PostDetailViewModel> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 20),
-                Row(
-                  children: <Widget>[
-                    CircleAvatar(
-                      child: Text('${postDetail.user.initial()}'),
-                    ),
-                    SizedBox(width: 10),
-                    Flexible(
-                      child: Text(
-                        '${postDetail.user.name}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
+                PostAuthorAvatar(
+                  user: postDetail.user,
+                  date: postDetail.date ?? DateTime.now(),
                 ),
-                SizedBox(height: 20),
                 Text(
                   '${postDetail.post.title}',
                   style: TextStyle(
