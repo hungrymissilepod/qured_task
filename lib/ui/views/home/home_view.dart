@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/ui/views/home/ui/home_view_loaded_state.dart';
+import 'package:flutter_app_template/ui/views/home/ui/home_view_loading_state.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter_app_template/ui/common/app_colors.dart';
 import 'package:flutter_app_template/ui/common/ui_helpers.dart';
@@ -16,32 +18,16 @@ class HomeView extends StackedView<HomeViewModel> {
   ) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('News Feed'),
+        title: const Text('News Feed'),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: viewModel.posts.map((e) {
-                return Card(
-                  child: Column(
-                    children: <Widget>[
-                      Text('${e.title}'),
-                      Text('${e.body}'),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
-          ),
+          child: viewModel.isBusy ? const HomeViewLoadingState() : const HomeViewLoadedState(),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
