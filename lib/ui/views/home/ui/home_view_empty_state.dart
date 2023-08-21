@@ -1,28 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/ui/views/home/home_viewmodel.dart';
+import 'package:stacked/stacked.dart';
 
-class HomeViewEmptyState extends StatelessWidget {
+class HomeViewEmptyState extends ViewModelWidget<HomeViewModel> {
   const HomeViewEmptyState({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25.0),
+  Widget build(BuildContext context, HomeViewModel viewModel) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(
+            const Icon(
               Icons.warning,
               color: Colors.red,
               size: 80,
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Failed to load posts',
               style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 10),
+            TextButton(
+              onPressed: () => viewModel.fetchPosts(),
+              child: const Text(
+                'Retry',
+                style: TextStyle(fontSize: 20, color: Colors.red),
+              ),
             ),
           ],
         ),

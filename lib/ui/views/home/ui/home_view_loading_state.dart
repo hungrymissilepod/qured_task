@@ -12,7 +12,10 @@ class HomeViewLoadingState extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircularProgressIndicator(),
+          CircularProgressIndicator(
+            color: Colors.black,
+            strokeWidth: 3,
+          ),
           SizedBox(
             height: 20,
           ),

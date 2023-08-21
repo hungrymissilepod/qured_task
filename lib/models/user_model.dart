@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
 
@@ -7,8 +9,9 @@ part 'user_model.g.dart';
 class User extends Equatable {
   final int id;
   final String name;
+  String? imageUrl;
 
-  const User(this.id, this.name);
+  User(this.id, this.name, {this.imageUrl});
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
@@ -19,5 +22,5 @@ class User extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, name];
+  List<Object?> get props => [id, name, imageUrl];
 }

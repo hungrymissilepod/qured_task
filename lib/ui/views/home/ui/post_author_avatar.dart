@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/models/user_model.dart';
 import 'package:flutter_app_template/extensions/date_formatter.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class PostAuthorAvatar extends StatelessWidget {
   const PostAuthorAvatar({
@@ -20,7 +21,11 @@ class PostAuthorAvatar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           CircleAvatar(
-            child: Text(user.initial()),
+            // child: Text(user.initial()),
+            backgroundImage: FadeInImage.memoryNetwork(
+              placeholder: kTransparentImage,
+              image: user.imageUrl ?? '',
+            ).image,
           ),
           const SizedBox(width: 10),
           Column(
