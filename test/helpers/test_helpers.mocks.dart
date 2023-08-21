@@ -13,6 +13,7 @@ import 'package:flutter_app_template/models/post_model.dart' as _i11;
 import 'package:flutter_app_template/models/user_model.dart' as _i3;
 import 'package:flutter_app_template/services/authentication_service.dart'
     as _i8;
+import 'package:flutter_app_template/services/comment_service.dart' as _i15;
 import 'package:flutter_app_template/services/dio_service.dart' as _i9;
 import 'package:flutter_app_template/services/post_detail_service.dart' as _i13;
 import 'package:flutter_app_template/services/post_service.dart' as _i10;
@@ -887,3 +888,8 @@ class MockPostDetailService extends _i1.Mock implements _i13.PostDetailService {
             _i6.Future<List<_i14.PostDetail>>.value(<_i14.PostDetail>[]),
       ) as _i6.Future<List<_i14.PostDetail>>);
 }
+
+/// A class which mocks [CommentService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCommentService extends _i1.Mock implements _i15.CommentService {}

@@ -11,7 +11,8 @@ class HomeViewLoadedState extends ViewModelWidget<HomeViewModel> {
     return viewModel.postDetails.isEmpty
         ? const HomeViewEmptyState()
         : SingleChildScrollView(
-            physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: viewModel.postDetails.map((e) {
@@ -47,7 +48,8 @@ class HomeViewLoadedState extends ViewModelWidget<HomeViewModel> {
                             '${e.post.title}',
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
                           ),
                           SizedBox(height: 20),
                           Text('${e.post.body}'),

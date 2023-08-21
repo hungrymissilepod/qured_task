@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/models/comment_model.dart';
 import 'package:flutter_app_template/models/post_detail_model.dart';
 import 'package:stacked/stacked.dart';
 
@@ -19,6 +20,11 @@ class PostDetailView extends StackedView<PostDetailViewModel> {
     Widget? child,
   ) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          '${postDetail.post.title}',
+        ),
+      ),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -60,7 +66,22 @@ class PostDetailView extends StackedView<PostDetailViewModel> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Text('Comments'),
+                Divider(),
+                Text(
+                  'Comments',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                viewModel.busy(PostDetailViewSection.comments)
+                    ? CircularProgressIndicator()
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: viewModel.comments.map((e) {
+                          return CommentWidget(comment: e);
+                        }).toList(),
+                      ),
               ],
             ),
           ),
@@ -74,4 +95,52 @@ class PostDetailView extends StackedView<PostDetailViewModel> {
     BuildContext context,
   ) =>
       PostDetailViewModel(postDetail);
+}
+
+class CommentWidget extends StatelessWidget {
+  const CommentWidget({
+    super.key,
+    required this.comment,
+  });
+
+  final Comment comment;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 12,
+                child: Text(
+                  '${comment.initial()}',
+                  style: TextStyle(fontSize: 12),
+                ),
+              ),
+              SizedBox(width: 10),
+              Flexible(
+                child: Text(
+                  '${comment.email}}',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
+          Text(
+            '${comment.name}}',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10),
+          Text('${comment.body}}'),
+        ],
+      ),
+    );
+  }
 }

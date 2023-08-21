@@ -13,10 +13,13 @@ class Comment extends Equatable {
 
   const Comment(this.postId, this.id, this.name, this.email, this.body);
 
-  factory Comment.fromJson(Map<String, dynamic> json) =>
-      _$CommentFromJson(json);
+  factory Comment.fromJson(Map<String, dynamic> json) => _$CommentFromJson(json);
 
   Map<String, dynamic> toJson() => _$CommentToJson(this);
+
+  String initial() {
+    return email[0];
+  }
 
   @override
   List<Object?> get props => [postId, id, name, email, body];

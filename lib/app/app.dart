@@ -12,6 +12,7 @@ import 'package:flutter_app_template/services/post_service.dart';
 import 'package:flutter_app_template/services/user_service.dart';
 import 'package:flutter_app_template/services/post_detail_service.dart';
 import 'package:flutter_app_template/ui/views/post_detail/post_detail_view.dart';
+import 'package:flutter_app_template/services/comment_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -32,6 +33,7 @@ import 'package:flutter_app_template/ui/views/post_detail/post_detail_view.dart'
     LazySingleton(classType: PostService),
     LazySingleton(classType: UserService),
     LazySingleton(classType: PostDetailService),
+    LazySingleton(classType: CommentService),
 // @stacked-service
   ],
   bottomsheets: [
