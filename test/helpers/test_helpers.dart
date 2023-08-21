@@ -4,6 +4,7 @@ import 'package:flutter_app_template/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:flutter_app_template/services/authentication_service.dart';
 import 'package:flutter_app_template/services/dio_service.dart';
+import 'package:flutter_app_template/services/post_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -14,6 +15,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<AuthenticationService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DioService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<PostService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -22,6 +24,7 @@ void registerServices() {
   getAndRegisterDialogService();
   getAndRegisterAuthenticationService();
   getAndRegisterDioService();
+  getAndRegisterPostService();
 // @stacked-mock-register
 }
 
@@ -86,6 +89,13 @@ MockDioService getAndRegisterDioService() {
   _removeRegistrationIfExists<DioService>();
   final service = MockDioService();
   locator.registerSingleton<DioService>(service);
+  return service;
+}
+
+MockPostService getAndRegisterPostService() {
+  _removeRegistrationIfExists<PostService>();
+  final service = MockPostService();
+  locator.registerSingleton<PostService>(service);
   return service;
 }
 // @stacked-mock-create

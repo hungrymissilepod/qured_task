@@ -8,6 +8,7 @@ import 'package:flutter_app_template/ui/views/counter/counter_view.dart';
 import 'package:flutter_app_template/ui/views/login/login_view.dart';
 import 'package:flutter_app_template/services/authentication_service.dart';
 import 'package:flutter_app_template/services/dio_service.dart';
+import 'package:flutter_app_template/services/post_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -24,6 +25,7 @@ import 'package:flutter_app_template/services/dio_service.dart';
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: AuthenticationService),
     LazySingleton(classType: DioService),
+    LazySingleton(classType: PostService),
 // @stacked-service
   ],
   bottomsheets: [

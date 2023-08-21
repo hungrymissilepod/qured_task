@@ -12,7 +12,6 @@ class DioService {
 
   void _initDio() {
     final options = BaseOptions(
-      baseUrl: 'https://www.google.com',
       connectTimeout: const Duration(seconds: 5),
       receiveTimeout: const Duration(seconds: 3),
     );
@@ -42,7 +41,8 @@ class DioService {
 
   Future<Response> patch(String url, {Map<String, dynamic>? parameters}) async {
     _logger.i('PATCH: $url - ${parameters.toString()}');
-    final Response response = await _dio.patch(url, queryParameters: parameters);
+    final Response response =
+        await _dio.patch(url, queryParameters: parameters);
     _logger.i('PATCH: $url - ${response.statusCode} - ${response.data}');
     return response;
   }
