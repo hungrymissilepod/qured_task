@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_template/ui/views/home/ui/home_view_loaded_state.dart';
 import 'package:flutter_app_template/ui/views/home/ui/home_view_loading_state.dart';
 import 'package:stacked/stacked.dart';
-import 'package:flutter_app_template/ui/common/app_colors.dart';
-import 'package:flutter_app_template/ui/common/ui_helpers.dart';
 
 import 'home_viewmodel.dart';
 

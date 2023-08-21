@@ -6,10 +6,11 @@ import 'package:flutter_app_template/services/dio_service.dart';
 class PostService {
   final DioService _dioService = locator<DioService>();
 
+  final List<Post> posts = <Post>[];
+
   Future<List<Post>> fetchPosts() async {
     final Response response = await _dioService.get('https://jsonplaceholder.typicode.com/posts');
     if (response.statusCode == 200) {
-      final List<Post> posts = <Post>[];
       final List<dynamic> data = response.data;
       for (Map<String, dynamic> obj in data) {
         final Post post = Post.fromJson(obj);

@@ -791,18 +791,13 @@ class MockDioService extends _i1.Mock implements _i8.DioService {
 /// See the documentation for Mockito's code generation for more information.
 class MockPostService extends _i1.Mock implements _i9.PostService {
   @override
-  List<_i10.Post> get posts => (super.noSuchMethod(
-        Invocation.getter(#posts),
-        returnValue: <_i10.Post>[],
-        returnValueForMissingStub: <_i10.Post>[],
-      ) as List<_i10.Post>);
-  @override
-  _i5.Future<List<_i10.Post>?> fetchPosts() => (super.noSuchMethod(
+  _i5.Future<List<_i10.Post>> fetchPosts() => (super.noSuchMethod(
         Invocation.method(
           #fetchPosts,
           [],
         ),
-        returnValue: _i5.Future<List<_i10.Post>?>.value(),
-        returnValueForMissingStub: _i5.Future<List<_i10.Post>?>.value(),
-      ) as _i5.Future<List<_i10.Post>?>);
+        returnValue: _i5.Future<List<_i10.Post>>.value(<_i10.Post>[]),
+        returnValueForMissingStub:
+            _i5.Future<List<_i10.Post>>.value(<_i10.Post>[]),
+      ) as _i5.Future<List<_i10.Post>>);
 }
