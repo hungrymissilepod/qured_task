@@ -11,14 +11,19 @@ class PostDetail extends Equatable {
   final Post post;
   final User user;
   final List<Comment>? comments;
+  String? imageUrl;
 
-  const PostDetail(this.post, this.user, {this.comments});
+  PostDetail(
+    this.post,
+    this.user, {
+    this.comments,
+    this.imageUrl,
+  });
 
-  factory PostDetail.fromJson(Map<String, dynamic> json) =>
-      _$PostDetailFromJson(json);
+  factory PostDetail.fromJson(Map<String, dynamic> json) => _$PostDetailFromJson(json);
 
   Map<String, dynamic> toJson() => _$PostDetailToJson(this);
 
   @override
-  List<Object?> get props => [post, user, comments];
+  List<Object?> get props => [post, user, comments, imageUrl];
 }

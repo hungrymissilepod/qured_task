@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_template/models/comment_model.dart';
 import 'package:flutter_app_template/models/post_detail_model.dart';
 import 'package:stacked/stacked.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 import 'post_detail_viewmodel.dart';
 
@@ -32,8 +33,18 @@ class PostDetailView extends StackedView<PostDetailViewModel> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('image here'),
-                SizedBox(height: 200),
+                SizedBox(height: 20),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: postDetail.imageUrl ?? '',
+                    width: double.infinity,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(height: 20),
                 Row(
                   children: <Widget>[
                     CircleAvatar(

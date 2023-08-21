@@ -5,20 +5,23 @@ class HomeViewLoadingState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-        child: Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CircularProgressIndicator(),
-        SizedBox(
-          height: 20,
-        ),
-        Text(
-          'Loading posts...',
-          style: TextStyle(fontSize: 20),
-        ),
-      ],
-    ));
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 25.0),
+      child: Center(
+          child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircularProgressIndicator(),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Loading posts...',
+            style: TextStyle(fontSize: 20),
+          ),
+        ],
+      )),
+    );
   }
 }

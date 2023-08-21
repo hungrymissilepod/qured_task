@@ -19,12 +19,7 @@ class HomeView extends StackedView<HomeViewModel> {
         title: const Text('News Feed'),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: viewModel.isBusy
-              ? const HomeViewLoadingState()
-              : const HomeViewLoadedState(),
-        ),
+        child: viewModel.isBusy ? const HomeViewLoadingState() : const HomeViewLoadedState(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

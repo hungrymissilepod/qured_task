@@ -8,6 +8,7 @@ import 'package:flutter_app_template/services/post_service.dart';
 import 'package:flutter_app_template/services/user_service.dart';
 import 'package:flutter_app_template/services/post_detail_service.dart';
 import 'package:flutter_app_template/services/comment_service.dart';
+import 'package:flutter_app_template/services/image_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -22,6 +23,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<UserService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<PostDetailService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<CommentService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<ImageService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -34,6 +36,7 @@ void registerServices() {
   getAndRegisterUserService();
   getAndRegisterPostDetailService();
   getAndRegisterCommentService();
+  getAndRegisterImageService();
 // @stacked-mock-register
 }
 
@@ -126,6 +129,13 @@ MockCommentService getAndRegisterCommentService() {
   _removeRegistrationIfExists<CommentService>();
   final service = MockCommentService();
   locator.registerSingleton<CommentService>(service);
+  return service;
+}
+
+MockImageService getAndRegisterImageService() {
+  _removeRegistrationIfExists<ImageService>();
+  final service = MockImageService();
+  locator.registerSingleton<ImageService>(service);
   return service;
 }
 // @stacked-mock-create

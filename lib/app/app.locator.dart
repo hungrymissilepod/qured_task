@@ -14,6 +14,7 @@ import 'package:stacked_shared/stacked_shared.dart';
 import '../services/authentication_service.dart';
 import '../services/comment_service.dart';
 import '../services/dio_service.dart';
+import '../services/image_service.dart';
 import '../services/post_detail_service.dart';
 import '../services/post_service.dart';
 import '../services/user_service.dart';
@@ -38,4 +39,5 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => UserService());
   locator.registerLazySingleton(() => PostDetailService());
   locator.registerLazySingleton(() => CommentService());
+  locator.registerLazySingleton(() => ImageService());
 }

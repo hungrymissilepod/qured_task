@@ -8,6 +8,7 @@ import 'dart:ui' as _i7;
 
 import 'package:dio/dio.dart' as _i2;
 import 'package:flutter/material.dart' as _i5;
+import 'package:flutter_app_template/models/comment_model.dart' as _i16;
 import 'package:flutter_app_template/models/post_detail_model.dart' as _i14;
 import 'package:flutter_app_template/models/post_model.dart' as _i11;
 import 'package:flutter_app_template/models/user_model.dart' as _i3;
@@ -15,6 +16,7 @@ import 'package:flutter_app_template/services/authentication_service.dart'
     as _i8;
 import 'package:flutter_app_template/services/comment_service.dart' as _i15;
 import 'package:flutter_app_template/services/dio_service.dart' as _i9;
+import 'package:flutter_app_template/services/image_service.dart' as _i17;
 import 'package:flutter_app_template/services/post_detail_service.dart' as _i13;
 import 'package:flutter_app_template/services/post_service.dart' as _i10;
 import 'package:flutter_app_template/services/user_service.dart' as _i12;
@@ -892,4 +894,21 @@ class MockPostDetailService extends _i1.Mock implements _i13.PostDetailService {
 /// A class which mocks [CommentService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCommentService extends _i1.Mock implements _i15.CommentService {}
+class MockCommentService extends _i1.Mock implements _i15.CommentService {
+  @override
+  _i6.Future<List<_i16.Comment>> fetchCommentsForPost(int? postId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #fetchCommentsForPost,
+          [postId],
+        ),
+        returnValue: _i6.Future<List<_i16.Comment>>.value(<_i16.Comment>[]),
+        returnValueForMissingStub:
+            _i6.Future<List<_i16.Comment>>.value(<_i16.Comment>[]),
+      ) as _i6.Future<List<_i16.Comment>>);
+}
+
+/// A class which mocks [ImageService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockImageService extends _i1.Mock implements _i17.ImageService {}

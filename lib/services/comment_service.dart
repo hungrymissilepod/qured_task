@@ -8,7 +8,8 @@ class CommentService {
 
   Future<List<Comment>> fetchCommentsForPost(int postId) async {
     final List<Comment> comments = <Comment>[];
-    final Response response = await _dioService.get('https://jsonplaceholder.typicode.com/comments?postId=$postId');
+    final Response response = await _dioService
+        .get('https://jsonplaceholder.typicode.com/comments?postId=$postId');
     if (response.statusCode == 200) {
       final List<dynamic> data = response.data;
       for (Map<String, dynamic> obj in data) {

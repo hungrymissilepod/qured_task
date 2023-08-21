@@ -9,7 +9,8 @@ class UserService {
   final List<User> users = <User>[];
 
   Future<List<User>> fetchUsers() async {
-    final Response response = await _dioService.get('https://jsonplaceholder.typicode.com/users');
+    final Response response =
+        await _dioService.get('https://jsonplaceholder.typicode.com/users');
     if (response.statusCode == 200) {
       final List<dynamic> data = response.data;
       for (Map<String, dynamic> obj in data) {
