@@ -23,7 +23,10 @@ class CommentCard extends StatelessWidget {
                 radius: 12,
                 child: Text(
                   comment.initial(),
-                  style: const TextStyle(fontSize: 14),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(width: 10),
