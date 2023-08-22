@@ -15,7 +15,7 @@ class HomeViewModel extends BaseViewModel {
     fetchPosts();
   }
 
-  void fetchPosts() async {
+  Future<void> fetchPosts() async {
     postDetails = await runBusyFuture(_postDetailService.fetchPostDetails());
   }
 
