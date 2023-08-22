@@ -22,6 +22,8 @@ Inspiration:
   - https://dribbble.com/shots/17204887-Bulletin-News-Articles-and-News-Reading-App
   - Medium.com
 
+Note about performance:
+In a real production app you would not want to fetch a list of all Users and join them to their Posts on app launch. However, because we are using the JsonPlaceholder API I knew that there was only a maximum of 10 Users. So I made the decision to fetch all Users on app launch to reduce the number of API calls and because the Users data will not change.
 
 Things I would like to improve on:
   - Display an avatar image for each Comment in the PostDetailView
