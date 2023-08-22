@@ -21,7 +21,6 @@ class PostAuthorAvatar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           CircleAvatar(
-            // child: Text(user.initial()),
             backgroundImage: FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
               image: user.imageUrl ?? '',

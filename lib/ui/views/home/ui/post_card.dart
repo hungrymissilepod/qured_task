@@ -50,10 +50,22 @@ class PostCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              Text(
-                postDetail.post.body,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+              Row(
+                children: <Widget>[
+                  Flexible(
+                    child: Text(
+                      postDetail.post.body,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  const Icon(
+                    Icons.chevron_right_rounded,
+                    size: 32,
+                    color: Colors.black,
+                  ),
+                ],
               ),
             ],
           ),

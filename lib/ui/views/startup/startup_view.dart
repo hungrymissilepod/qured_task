@@ -25,7 +25,7 @@ class StartupView extends StackedView<StartupViewModel> {
               height: 20,
             ),
             Text(
-              'Loading posts...',
+              'Loading your news feed...',
               style: TextStyle(fontSize: 20),
             ),
           ],
@@ -41,6 +41,6 @@ class StartupView extends StackedView<StartupViewModel> {
       StartupViewModel();
 
   @override
-  void onViewModelReady(StartupViewModel viewModel) => SchedulerBinding.instance
-      .addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
+  void onViewModelReady(StartupViewModel viewModel) =>
+      SchedulerBinding.instance.addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
 }

@@ -9,9 +9,11 @@ part of 'user_model.dart';
 User _$UserFromJson(Map<String, dynamic> json) => User(
       json['id'] as int,
       json['name'] as String,
+      imageUrl: json['imageUrl'] as String?,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'imageUrl': instance.imageUrl,
     };

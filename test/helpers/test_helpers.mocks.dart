@@ -9,18 +9,16 @@ import 'dart:ui' as _i8;
 
 import 'package:dio/dio.dart' as _i2;
 import 'package:flutter/material.dart' as _i6;
-import 'package:flutter_app_template/models/comment_model.dart' as _i17;
-import 'package:flutter_app_template/models/post_detail_model.dart' as _i15;
-import 'package:flutter_app_template/models/post_model.dart' as _i12;
+import 'package:flutter_app_template/models/comment_model.dart' as _i16;
+import 'package:flutter_app_template/models/post_detail_model.dart' as _i14;
+import 'package:flutter_app_template/models/post_model.dart' as _i11;
 import 'package:flutter_app_template/models/user_model.dart' as _i3;
-import 'package:flutter_app_template/services/authentication_service.dart'
-    as _i9;
-import 'package:flutter_app_template/services/comment_service.dart' as _i16;
-import 'package:flutter_app_template/services/dio_service.dart' as _i10;
-import 'package:flutter_app_template/services/image_service.dart' as _i18;
-import 'package:flutter_app_template/services/post_detail_service.dart' as _i14;
-import 'package:flutter_app_template/services/post_service.dart' as _i11;
-import 'package:flutter_app_template/services/user_service.dart' as _i13;
+import 'package:flutter_app_template/services/comment_service.dart' as _i15;
+import 'package:flutter_app_template/services/dio_service.dart' as _i9;
+import 'package:flutter_app_template/services/image_service.dart' as _i17;
+import 'package:flutter_app_template/services/post_detail_service.dart' as _i13;
+import 'package:flutter_app_template/services/post_service.dart' as _i10;
+import 'package:flutter_app_template/services/user_service.dart' as _i12;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i5;
 
@@ -672,26 +670,10 @@ class MockDialogService extends _i1.Mock implements _i5.DialogService {
       );
 }
 
-/// A class which mocks [AuthenticationService].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockAuthenticationService extends _i1.Mock
-    implements _i9.AuthenticationService {
-  @override
-  bool userLoggedIn() => (super.noSuchMethod(
-        Invocation.method(
-          #userLoggedIn,
-          [],
-        ),
-        returnValue: false,
-        returnValueForMissingStub: false,
-      ) as bool);
-}
-
 /// A class which mocks [DioService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDioService extends _i1.Mock implements _i10.DioService {
+class MockDioService extends _i1.Mock implements _i9.DioService {
   @override
   _i7.Future<_i2.Response<dynamic>> get(
     String? url, {
@@ -817,29 +799,29 @@ class MockDioService extends _i1.Mock implements _i10.DioService {
 /// A class which mocks [PostService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPostService extends _i1.Mock implements _i11.PostService {
+class MockPostService extends _i1.Mock implements _i10.PostService {
   @override
-  List<_i12.Post> get posts => (super.noSuchMethod(
+  List<_i11.Post> get posts => (super.noSuchMethod(
         Invocation.getter(#posts),
-        returnValue: <_i12.Post>[],
-        returnValueForMissingStub: <_i12.Post>[],
-      ) as List<_i12.Post>);
+        returnValue: <_i11.Post>[],
+        returnValueForMissingStub: <_i11.Post>[],
+      ) as List<_i11.Post>);
   @override
-  _i7.Future<List<_i12.Post>> fetchPosts() => (super.noSuchMethod(
+  _i7.Future<List<_i11.Post>> fetchPosts() => (super.noSuchMethod(
         Invocation.method(
           #fetchPosts,
           [],
         ),
-        returnValue: _i7.Future<List<_i12.Post>>.value(<_i12.Post>[]),
+        returnValue: _i7.Future<List<_i11.Post>>.value(<_i11.Post>[]),
         returnValueForMissingStub:
-            _i7.Future<List<_i12.Post>>.value(<_i12.Post>[]),
-      ) as _i7.Future<List<_i12.Post>>);
+            _i7.Future<List<_i11.Post>>.value(<_i11.Post>[]),
+      ) as _i7.Future<List<_i11.Post>>);
 }
 
 /// A class which mocks [UserService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUserService extends _i1.Mock implements _i13.UserService {
+class MockUserService extends _i1.Mock implements _i12.UserService {
   @override
   List<_i3.User> get users => (super.noSuchMethod(
         Invocation.getter(#users),
@@ -882,47 +864,47 @@ class MockUserService extends _i1.Mock implements _i13.UserService {
 /// A class which mocks [PostDetailService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPostDetailService extends _i1.Mock implements _i14.PostDetailService {
+class MockPostDetailService extends _i1.Mock implements _i13.PostDetailService {
   @override
-  List<_i15.PostDetail> get postDetails => (super.noSuchMethod(
+  List<_i14.PostDetail> get postDetails => (super.noSuchMethod(
         Invocation.getter(#postDetails),
-        returnValue: <_i15.PostDetail>[],
-        returnValueForMissingStub: <_i15.PostDetail>[],
-      ) as List<_i15.PostDetail>);
+        returnValue: <_i14.PostDetail>[],
+        returnValueForMissingStub: <_i14.PostDetail>[],
+      ) as List<_i14.PostDetail>);
   @override
-  _i7.Future<List<_i15.PostDetail>> fetchPostDetails() => (super.noSuchMethod(
+  _i7.Future<List<_i14.PostDetail>> fetchPostDetails() => (super.noSuchMethod(
         Invocation.method(
           #fetchPostDetails,
           [],
         ),
         returnValue:
-            _i7.Future<List<_i15.PostDetail>>.value(<_i15.PostDetail>[]),
+            _i7.Future<List<_i14.PostDetail>>.value(<_i14.PostDetail>[]),
         returnValueForMissingStub:
-            _i7.Future<List<_i15.PostDetail>>.value(<_i15.PostDetail>[]),
-      ) as _i7.Future<List<_i15.PostDetail>>);
+            _i7.Future<List<_i14.PostDetail>>.value(<_i14.PostDetail>[]),
+      ) as _i7.Future<List<_i14.PostDetail>>);
 }
 
 /// A class which mocks [CommentService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCommentService extends _i1.Mock implements _i16.CommentService {
+class MockCommentService extends _i1.Mock implements _i15.CommentService {
   @override
-  _i7.Future<List<_i17.Comment>> fetchCommentsForPost(int? postId) =>
+  _i7.Future<List<_i16.Comment>> fetchCommentsForPost(int? postId) =>
       (super.noSuchMethod(
         Invocation.method(
           #fetchCommentsForPost,
           [postId],
         ),
-        returnValue: _i7.Future<List<_i17.Comment>>.value(<_i17.Comment>[]),
+        returnValue: _i7.Future<List<_i16.Comment>>.value(<_i16.Comment>[]),
         returnValueForMissingStub:
-            _i7.Future<List<_i17.Comment>>.value(<_i17.Comment>[]),
-      ) as _i7.Future<List<_i17.Comment>>);
+            _i7.Future<List<_i16.Comment>>.value(<_i16.Comment>[]),
+      ) as _i7.Future<List<_i16.Comment>>);
 }
 
 /// A class which mocks [ImageService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockImageService extends _i1.Mock implements _i18.ImageService {
+class MockImageService extends _i1.Mock implements _i17.ImageService {
   @override
   _i4.Random get random => (super.noSuchMethod(
         Invocation.getter(#random),

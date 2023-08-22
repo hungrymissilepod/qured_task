@@ -5,34 +5,26 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i7;
+import 'package:flutter/material.dart' as _i5;
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/models/post_detail_model.dart' as _i8;
-import 'package:flutter_app_template/ui/views/counter/counter_view.dart' as _i4;
+import 'package:flutter_app_template/models/post_detail_model.dart' as _i6;
 import 'package:flutter_app_template/ui/views/home/home_view.dart' as _i2;
-import 'package:flutter_app_template/ui/views/login/login_view.dart' as _i5;
 import 'package:flutter_app_template/ui/views/post_detail/post_detail_view.dart'
-    as _i6;
+    as _i4;
 import 'package:flutter_app_template/ui/views/startup/startup_view.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i9;
+import 'package:stacked_services/stacked_services.dart' as _i7;
 
 class Routes {
   static const homeView = '/home-view';
 
   static const startupView = '/startup-view';
 
-  static const counterView = '/counter-view';
-
-  static const loginView = '/login-view';
-
   static const postDetailView = '/post-detail-view';
 
   static const all = <String>{
     homeView,
     startupView,
-    counterView,
-    loginView,
     postDetailView,
   };
 }
@@ -48,49 +40,29 @@ class StackedRouter extends _i1.RouterBase {
       page: _i3.StartupView,
     ),
     _i1.RouteDef(
-      Routes.counterView,
-      page: _i4.CounterView,
-    ),
-    _i1.RouteDef(
-      Routes.loginView,
-      page: _i5.LoginView,
-    ),
-    _i1.RouteDef(
       Routes.postDetailView,
-      page: _i6.PostDetailView,
+      page: _i4.PostDetailView,
     ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i7.MaterialPageRoute<dynamic>(
+      return _i5.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i7.MaterialPageRoute<dynamic>(
+      return _i5.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
-    _i4.CounterView: (data) {
-      return _i7.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i4.CounterView(),
-        settings: data,
-      );
-    },
-    _i5.LoginView: (data) {
-      return _i7.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i5.LoginView(),
-        settings: data,
-      );
-    },
-    _i6.PostDetailView: (data) {
+    _i4.PostDetailView: (data) {
       final args = data.getArgs<PostDetailViewArguments>(nullOk: false);
-      return _i7.MaterialPageRoute<dynamic>(
+      return _i5.MaterialPageRoute<dynamic>(
         builder: (context) =>
-            _i6.PostDetailView(key: args.key, postDetail: args.postDetail),
+            _i4.PostDetailView(key: args.key, postDetail: args.postDetail),
         settings: data,
       );
     },
@@ -108,9 +80,9 @@ class PostDetailViewArguments {
     required this.postDetail,
   });
 
-  final _i7.Key? key;
+  final _i5.Key? key;
 
-  final _i8.PostDetail postDetail;
+  final _i6.PostDetail postDetail;
 
   @override
   String toString() {
@@ -129,7 +101,7 @@ class PostDetailViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i9.NavigationService {
+extension NavigatorStateExtension on _i7.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -158,37 +130,9 @@ extension NavigatorStateExtension on _i9.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToCounterView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return navigateTo<dynamic>(Routes.counterView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
-  Future<dynamic> navigateToLoginView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return navigateTo<dynamic>(Routes.loginView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
   Future<dynamic> navigateToPostDetailView({
-    _i7.Key? key,
-    required _i8.PostDetail postDetail,
+    _i5.Key? key,
+    required _i6.PostDetail postDetail,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -231,37 +175,9 @@ extension NavigatorStateExtension on _i9.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithCounterView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return replaceWith<dynamic>(Routes.counterView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
-  Future<dynamic> replaceWithLoginView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return replaceWith<dynamic>(Routes.loginView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
   Future<dynamic> replaceWithPostDetailView({
-    _i7.Key? key,
-    required _i8.PostDetail postDetail,
+    _i5.Key? key,
+    required _i6.PostDetail postDetail,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
